@@ -4,7 +4,7 @@
     <title>Introduction</title>
     <shortdesc>This document describes the basic setup and features of the cityEHR starting from a standard, out-of-the-box installation.</shortdesc>
     <body>
-        <p>If you don't have an installation of cityEHR yet you should refer to the cityEHR Installation Guide.</p>
+        <p>If you don't have an installation of <b>cityEHR</b> yet you should refer to the cityEHR Installation Guide.</p>
         <p>If you have a standard installation running under Tomcat on your local machine, you can access cityEHR at <i>localhost:8080/cityehr</i>. For remote servers, replace '<i>localhost</i>' with the server's IP address.</p>
         <p>cityEHR is an XML-based application that uses only declarative programming languages, including XHTML, XML, XForms, XSLT, and XQuery, ensuring simplicity and flexibility in customization.</p>
         <p>The source code is located at <i>CATALINA_HOME/webapps/cityehr/WEB-INF/resources/apps/ehr</i>. Here, CATALINA_HOME refers to the base directory of your Tomcat installation.</p>
