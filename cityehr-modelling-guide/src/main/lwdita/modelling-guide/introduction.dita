@@ -4,6 +4,29 @@
     <title>Introduction</title>
     <shortdesc>This document describes the basic modelling for cityEHR</shortdesc>
     <body>
-        <p>Coming soon!</p>
+        <p>This document provides a quick reference guide to creating infromation models for cityEHR. Within cityEHR, models are stored and manipulated as OWL/XML ontologies but they can be created and visualised using a avariety of tools that generate XML representations of the models. These representations can then be transformed to OWL/XML and uploaded to cityEHR through the Administration page, using the menu selection <b>Information Model | Import Model.</b></p>
+        <p>The ontology models define the basic structure of ISO 13606 Compositions and their allocation to Folders, which in cityEHR correspond to care settings such as clinical specialties (Rheumatology, Pulmonary, Liver and Biliary, etc) or departments such as Maternity, Emerency Room, Ambulatory Care, etc.</p>
+        <p>The overall architecture (called the Reference Model) of an Electronic Health Record is ISO 13606 is shown in the Figure below</p>
+        <p>
+            <image href="images/reference-model.png" format="image/png">
+                <alt>ISO 13606 Reference Model</alt>
+            </image>
+        </p>
+        <p>As welll as the basic structure of ISO 13606, the cityEHR ontology models define additional attributes that control the operation of the health records application and the behavior of the information as users (clinicians) interact with the record structures.</p>
+        <p>In ontology terms, these attributes are either Object Properties or Data Properties. The Object Properties define relationships betweeen two individuals in the ontology, which for cityEHR's information models menas that the clinical modeller chooses from a set of defined values for the property. A summary of the ontology representation of cityEHR models is provided in Appendix 1.</p>
+        <p>The Data Properties define relationships between an individual in the ontology and a string literal, which means that the clinical modeller defines the values of those string literals.</p>
+        <p>A single cityEHR installation can be configured to support multiple EHR applications, each with its own information model. Within a single application there can be multiple specialty models which share a common model. Typically the specialty models correspond to clinical specialties or departments in a care provider organisation. One information model for the application can be designatted as the <b>Common Model;</b> this is shared between all specialites, so that any common components can be shared between them.</p>
+        <p>
+            <image href="images/cityehr-application-structure.png" format="image/png">
+                <alt>cityEHR Application Structure</alt>
+            </image>
+        </p>
+        <p>Each user is assigned to one or more specialties. On sign-on the user's (single) specialty model will be loaded, or if they have been assigned to more than one specialty then they can select which specialty to use for the session. Once started, the sepecialty is fixed for the user's session, although there are some functions (particularly in the Administration page) where the specialty can be chosen for that particulary function; this does not change the specialty for the session itself.</p>
+        <p>There are several ways in which new clinical information models can be created:</p>
+        <ul>
+            <li><p>extend the model shipped by default with cityEHR</p></li>
+            <li><p>create new specialty models for the default application</p></li>
+            <li><p>create a new application with its own base and specialty models</p></li>
+        </ul>
     </body>
 </topic>
