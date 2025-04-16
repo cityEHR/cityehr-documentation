@@ -11,4 +11,5 @@
       <othermeta name="dcterms:rightsHolder" content="https://seveninformatics.com"/>
    </topicmeta>
    <topicref href="introduction.dita"/>
+  <topicref href="modelling-using-libreoffice-spreadsheets.dita"/>
 </map>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD LIGHTWEIGHT DITA Topic//EN" "topic.dtd">
+<topic id="modelling-using-libreoffice-spreadsheets">
+  <title>Modelling Using LibreOffice Spreadsheets</title>
+  <shortdesc></shortdesc>
+  <body>
+    <p>The main tooling used for creating and editing information models in cityEHR is the open source LibreOffice spreadsheet (LibreOffice Calc).</p>
+    <p>
+      <image href="images/commonModel-config.png" format="image/png">
+        <alt>Information Model Configuration page in LibreOffice</alt>
+      </image>
+    </p>
+    <p>Template spreadsheets ship with cityEHR, as well as the example models for the Feature Demo
+      specialty that is configured 'out of the box'. Two important options must be configured in
+      LibreOffice to ease the modelling process.</p>
+    <ol>
+      <li>
+        <p>Turn on display of grid-lines. Here is the display of the first sheet without
+          grid-lines.</p>
+        <p><image href="images/commonModel-config-zoomed.png" format="image/png">
+          <alt>Spreadsheet Configuration without grid-lines</alt></image></p>
+      </li>
+      <li>
+        <p>To switch the grid-lines in, select in the settings <b>View -> Show Grid-lines</b>. The
+          grid-lines should then display as below</p>
+        <p><image href="images/commonModel-config-zoomed-gridlines.png" format="image/png">
+          <alt>Spreadsheet Configuration with grid-lines</alt></image></p>
+      </li>
+      <li>
+        <p>If the grid-lines are still not showing, then in the settings, select <b>Tools -> Options -> LibreOffice Calc -> View</b> and select the option to show grid-lines on coloured cells.</p>
+        <p><image href="images/libreoffice-gridline-settings.png" format="image/png">
+          <alt>LibreOffice Calc options for grid-line display</alt></image></p>
+      </li>
+      <li><p>Ensure that LibreOffice uses balanced, straight quotation marks 'single quotes' and "double quotes", <b>not</b> angled quotes.</p>
+        <p><image href="images/quotes-comparison.png" format="image/png">
+          <alt>Comparison of angled vs straight quotes</alt></image></p>
+      </li>
+      <li><p>To prevent the auto-correction of straight quotes to angled quotes, navigate to <b>Tools -> AutoCorrect -> AutoCorrect Options -> Localised Options.</b></p>
+        <p><image href="images/autocorrect-options.png" format="image/png">
+          <alt> LibreOffice AutoCorrect Options</alt></image></p>
+      </li>
+    </ol>
+  </body>
+</topic>
