@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD LIGHTWEIGHT DITA Topic//EN" "topic.dtd">
+<topic id="properties-defining-structure-health-record">
+  <title>Properties Defining the Structure of the Health Record</title>
+  <shortdesc></shortdesc>
+  <body>
+    <p>Most of these properties are available for most ISO-13606 Components, as listed, and define the basic structure of the health record and the relationship between Components.</p>
+    <simpletable>
+      <sthead>
+        <stentry><p>Property</p></stentry>
+        <stentry><p>Where Used</p></stentry>
+        <stentry><p>Values</p></stentry>
+        <stentry><p>Description</p></stentry>
+      </sthead>
+      <strow>
+        <stentry><p>Identifier</p></stentry>
+        <stentry><ul>
+          <li><p>Folder</p></li>
+          <li><p>Composition</p></li>
+          <li><p>Section</p></li>
+          <li><p>Entry</p></li>
+          <li><p>Cluster</p></li>
+          <li><p>Element</p></li>
+          <li><p>Unit</p></li>
+          <li><p>CodePoint</p></li>
+        </ul></stentry>
+        <stentry><p>A string containing one or more of the characters a- z, A-Z, 0-9, -, _, . (dot). Must be unique for the sheet it appears on (i.e. across all components of that type)</p></stentry>
+        <stentry><p>Unique identifier for the ISO-13606 component. The id is used to create the structured representation of ISO 13606 through links between the identified components.</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Extension</p></stentry>
+        <stentry><ul>
+          <li><p>Entry</p></li>
+          <li><p>Element</p></li>
+        </ul></stentry>
+        <stentry><p>String of the form: (1) ComponentType: Identifier e.g. Element:Date (2) Entry:BloodPressure</p></stentry>
+        <stentry><p>The extension to the identifier. The purpose of the extension is to allow for specialization of identified components. The component Identifier is used to define the structure of the health record, but the Extension is used in calculations. This means that the same component (same extension) can be defined with different behaviours (specified for components with different Identifiers, referring to the same Extension) Selected from the existing identifiers of the relevant component type. If no Extension is specified for a component then it defaults to be the same as the Identifier</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>DisplayName</p></stentry>
+        <stentry><ul>
+          <li><p>Folder</p></li>
+          <li><p>Composition</p></li>
+          <li><p>Section</p></li>
+          <li><p>Entry</p></li>
+          <li><p>Cluster</p></li>
+          <li><p>Element</p></li>
+          <li><p>Unit</p></li>
+          <li><p>CodePoint</p></li>
+        </ul></stentry>
+        <stentry><p>String</p></stentry>
+        <stentry><p>Label displayed to describe the component.</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Information</p></stentry>
+        <stentry><ul>
+          <li><p>Entry</p></li>
+        </ul></stentry>
+        <stentry><p>Entry: 'entry name'</p></stentry>
+        <stentry><p>An Entry displayed in the information pane of the user interface that can contain additional information about the Entry to which it is associated. The Information Entry is displayed as Read Only but can include calculations. This could be used (for example) to display a different URL to external information, depending on the values of Elements in the associated Entry.</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>EntryRelationship</p></stentry>
+        <stentry><p>Entry of the EntryType</p><ul>
+          <li><p>Encounter</p></li>
+          <li><p>SubstanceAdministration</p></li>
+          <li><p>Supply</p></li>
+        </ul></stentry>
+        <stentry><p>Entry: 'entry name'</p></stentry>
+        <stentry><p>Used to define additional information about an:</p><ul>
+          <li><p>Encounter - details of the booking</p></li>
+          <li><p>SubstanceAdministration - details of the medication being prescribed</p></li>
+          <li><p>Supply - details of the test being ordered</p></li>
+        </ul></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Subject</p></stentry>
+        <stentry><ul>
+          <li><p>Entry</p></li>
+        </ul></stentry>
+        <stentry><p>Entry: 'entry name'</p></stentry>
+        <stentry><p>The Composition that is the subject of an Act. Only selectable if the Entry has an EntryType of Act.</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>SortCriteria</p></stentry>
+        <stentry><ul>
+          <li><p>Entry</p></li>
+        </ul></stentry>
+        <stentry><p>Element: 'ElementId'</p></stentry>
+        <stentry><p>The Element used to sort a MultipleEntry or as the key to look up the value of a directory Entry.</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>CategorizationCriteria</p></stentry>
+        <stentry><ul>
+          <li><p>Entry</p></li>
+        </ul></stentry>
+        <stentry><p>Element: 'ElementId'</p></stentry>
+        <stentry><p>The Element used to categorize a MultipleEntry. The multiple entries are split into categories – one category for each value of the Element specified as the CategorizationCriteria. This Element must exist as content of the Entry.</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Contents</p></stentry>
+        <stentry><ul>
+          <li><p>Folder</p></li>
+          <li><p>Composition</p></li>
+          <li><p>Section</p></li>
+          <li><p>Entry</p></li>
+          <li><p>Cluster</p></li>
+        </ul></stentry>
+        <stentry><p>List of Identifiers of ISO 13606 components.</p></stentry>
+        <stentry><p>List of sub-components contained within the component. Select from the drop-down that lists Identifiers from the relevant sheet(s). The Contents define the structure of ISO 13606 components.</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Data</p></stentry>
+        <stentry><ul>
+          <li><p>Element</p></li>
+        </ul></stentry>
+        <stentry><p>A set of pairs of DisplayName (String) and Value (String)</p></stentry>
+        <stentry><p>The DisplayName (required) is used in selection and display to users; the Value (optional) is the data value recorded in the patient record (and used in calculations). If it is not specified, the Value defaults to the DisplayName.</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Unit</p></stentry>
+        <stentry><ul>
+          <li><p>Element</p></li>
+        </ul></stentry>
+        <stentry><p>List of Identifiers of Unit components. String of the form: Unit: 'UnitId'</p></stentry>
+        <stentry><p>The units of measurement for a data value, selected from the defined Units.</p></stentry>
+      </strow>
+    </simpletable>
+  </body>
+</topic>

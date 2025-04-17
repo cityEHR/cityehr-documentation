@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD LIGHTWEIGHT DITA Topic//EN" "topic.dtd">
+<topic id="configuration-sheet">
+  <title>Configuration Sheet</title>
+  <shortdesc></shortdesc>
+  <body>
+    <p><image href="images/commonModel-config-zoomed-gridlines.png" format="image/png">
+      <alt>cityEHR Configuration Sheet</alt></image></p>
+    <p><b>Configuration Parameters Definitions</b></p>
+    <simpletable id="configuration-parameters">
+      <sthead>
+        <stentry><p>Parameter</p></stentry>
+        <stentry><p>Description</p></stentry>
+      </sthead>
+      <strow>
+        <stentry><p>ApplicationId</p></stentry>
+        <stentry><p>The identifier for the cityEHR application that is driven by this model. The file can only be loaded for the application with this identifier. <i>Required</i></p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>ModelOwner</p></stentry>
+        <stentry><p>Name of the model owner – copyright is asserted in the ontology</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>SpecialtyId</p></stentry>
+        <stentry><p>The identifier for the specialty (folder) for this model. <i>Required</i></p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>SpecialtyDisplayName</p></stentry>
+        <stentry><p>The display name (title) for the specialty</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>LanguageCode</p></stentry>
+        <stentry><p>The pair of ISO 639-1 language code and ISO 3166-1 Alpha-2 country code. For example en-gb (which is the default).</p></stentry>
+      </strow>
+    </simpletable>
+    <p></p>
+    <simpletable id="configuration-field-types">
+      <sthead>
+        <stentry><p>Field type</p></stentry>
+        <stentry><p>Colour</p></stentry>
+        <stentry><p>Description</p></stentry>
+      </sthead>
+      <strow>
+        <stentry><p>Reference</p></stentry>
+        <stentry><p>#FFFFCC</p></stentry>
+        <stentry><p>A reference to an ISO 13606 component, selected in a drop-down menu</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>DisplayName</p></stentry>
+        <stentry><p>#CCCCFF</p></stentry>
+        <stentry><p>The display name (title) of an ISO 13606 component or data value.</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Value</p></stentry>
+        <stentry><p>#E6E6FF</p></stentry>
+        <stentry><p>A (categorical) value of the Data for an ISO 13606 Element</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Identifier</p></stentry>
+        <stentry><p>#CCFFFF</p></stentry>
+        <stentry><p>The identifier for an ISO 13606 component. Must be unique on each sheet (i.e. for each component type). A-z, A-Z, 0-9,, -, _, . (dot) only.</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Literal</p></stentry>
+        <stentry><p>#D3FFD5</p></stentry>
+        <stentry><p>The string literal for a data property, including calculations.</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Property</p></stentry>
+        <stentry><p>#FFFF99</p></stentry>
+        <stentry><p>The value of an object property, selected in a drop-down menu</p></stentry>
+      </strow>
+    </simpletable>
+  </body>
+</topic>

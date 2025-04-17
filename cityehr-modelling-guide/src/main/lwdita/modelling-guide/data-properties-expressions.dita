@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD LIGHTWEIGHT DITA Topic//EN" "topic.dtd">
+<topic id="data-properties-expressions">
+  <title>Data Properties for Expressions</title>
+  <shortdesc></shortdesc>
+  <body>
+    <p>Expressions are used in the following data properties:</p>
+    <simpletable>
+      <sthead>
+        <stentry><p>Property</p></stentry>
+        <stentry><p>Where Used</p></stentry>
+        <stentry><p>Description</p></stentry>
+      </sthead>
+      <strow>
+        <stentry><p>Conditions</p></stentry>
+        <stentry><p>Section</p><p>Entry</p><p>Cluster</p><p>Element</p></stentry>
+        <stentry><p>Result of the expression is cast to xs:boolean</p> <p>The Condition is evaluated continuously as the containing Composition is edited by the user. If the Condition evaluates to <b>true</b> then the component is in-scope, if the Condition evaluates to <b>false</b> then the component is out-of-scope.</p><p>Any out-of-scope component has its visibility set to <b>false</b>, is hidden from the user, does not get used in other calculations and is removed from the Composition before it is committed to the patient record.</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Pre-conditions</p></stentry>
+        <stentry><p>Section</p><p>Entry</p></stentry>
+        <stentry><p>Result of the expression is cast to xs:boolean</p><p>These pre-conditions are evaluated once, when the Composition is loaded; any out-of-scope component is removed from the Composition before any user interaction begins.</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>EvaluationContext</p></stentry>
+        <stentry><p>Section</p><p>Entry</p></stentry>
+        <stentry><p>Conditions used to constrain the Compositions in the record from which default values for any Elements in the component are calculated when the Composition is loaded.</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Constraints</p></stentry>
+        <stentry><p>Element</p></stentry>
+        <stentry><p>Result of the expression is cast to xs:boolean</p><p>An expression that is evaluated as the user enters the value of Data for the Element; if the Constraints evaluates to <b>false</b> then the value entered by the user is removed (replaced by an empty value)</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>DefaultValue</p></stentry>
+        <stentry><p>Element</p></stentry>
+        <stentry><p>Result of the expression is cast to the DataType of the Element</p><p>An expression that is evaluated when the Composition is loaded; result is set as the initial value of the Element Data. Note that the evaluation is also determined by the InitialValue property of the containing Entry, which must be set to either Default or Pre-filled. For Default, the default value is set as the result of the expression or is left empty if no default expression is specified. For Pre-filled entries, any default values are calculated only if there is no existing Entry of that type recorded for the patient.</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>CalculatedValue</p></stentry>
+        <stentry><p>Element</p></stentry>
+        <stentry><p>Result of the expression is cast to the DataType of the Element</p><p>The CalculatedValue is evaluated continuously as the containing Composition is edited by the user.</p><p>The result of the CalculatedValue expression sets the Data value of Elements that are of type calculatedValue</p><p>For Elements of type enumeratedCalculatedValue, the result of the expression should be a sequence of values (a, b,c, etc) that then constrains the Data values for the Element that can be selected by the user.</p></stentry>
+      </strow>
+    </simpletable>
+    <p>The expression language used by cityEHR is XPath, with some additional built-in functions and the ability to reference the data value of Elements using the convention:</p>
+    <p>EntryId/ElementId</p>
+    <p>where ElementId is the identifier of an Element contained in the Entry with identifier EntryId. Expressions use the XPath expression language (version 2) as defined by the W3C standard at:</p>
+    <p><i>https://www.w3.org/TR/xquery-operators/</i></p>
+    <p>In the context of cityEHR expressions the data value of an Element is represented as EntryId/ElementId, so for example in the expression</p>
+    <p>ScanDate/Date – Demographics/DateOfBirth</p>
+    <p>ScanDate/Date is the value of the Element with the identity Date in the Entry with the identity ScanDate and</p>
+    <p>Demographics/DateOfBirth is the value of the Element with identity DateOfBirth in the Entry with the identity Demographics</p>
+    <p>The result of the expression is cast to the data type defined by the DataType of the Element (when used in Default Value or CalculatedValue) or as xs:boolean (for Conditions, Pr-conditions and Constraints)</p>
+    <p>Expressions can also use extension functions that are specific to cityEHR, as shown in the following table. Here elementRef represents the pair EntryId/ElementId</p>
+    <simpletable>
+      <sthead>
+        <stentry><p>Function</p></stentry>
+        <stentry><p>Description</p></stentry>
+      </sthead>
+      <strow>
+        <stentry><p>cityEHR:getValues(elementRef)</p></stentry>
+        <stentry><p>Returns a sequence of values for the elementRef – this is all values that have been recorded in the longitudinal record.</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>cityEHR:getValues(elementRef, conditions)</p></stentry>
+        <stentry><p>Where the conditions parameter is supplied this is an Xpath expression used to filter the value returned and is evaluated relative to the return sequence. So for example the conditions [. lt 60] would filter the sequence to values less than 60.</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>cityEHR:distinctValues(elementRef)</p><p>cityEHR:distinctValues(elementRef, conditions)</p></stentry>
+        <stentry><p>As getValues, but returns the sequence of distinct values found. So the sequence does not contain any repeats of the same value.</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>cityEHR:lookup(directoryElement, keyValue)</p></stentry>
+        <stentry><p>Looks up the keyValue in the directory specified by the directoryElement parameter.</p><p>The keyValue is an Xpath expression that can be a string literal (must be quoted) or an elementRef</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>cityEHR:instance(instanceId, path)</p></stentry>
+        <stentry><p>Returns the result of the path in the XForms instance specified by the instanceId parameter. This function requires knowledge of the cityEHR code in order to specify the instanceId.</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>cityEHR:getAttribute(elementRef, attributeId)</p></stentry>
+        <stentry><p>Returns the value of the XML attribute named by the attributeId parameter on the element specified as the elementRef</p></stentry>
+      </strow>
+    </simpletable>
+    <p>Examples of expressions from the default Feature Demo application are shown in the table below.</p>
+    <simpletable>
+      <sthead>
+        <stentry><p>Type</p></stentry>
+        <stentry><p>Example Expression</p></stentry>
+      </sthead>
+      <strow>
+        <stentry><p>Calculated Value</p></stentry>
+        <stentry><p>0</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Calculated Value</p></stentry>
+        <stentry><p>'today'</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Calculated Value</p></stentry>
+        <stentry><p>'P7D</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Calculated Value</p></stentry>
+        <stentry><p>Current-date()</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Calculated Value</p></stentry>
+        <stentry><p>ClinicDetails/ClinicCode</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Calculated Value</p></stentry>
+        <stentry><p>ScanDate/Date – Demographics/DateOfBirth</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Calculated Value</p></stentry>
+        <stentry><p>round-half-to-even(10000*BMI/WeightInKg div (BMI/HeightInCm * BMI/HeightInCm),2)</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Calculated Value</p></stentry>
+        <stentry><p>if (BMI/CalculatedBMI lt 18.5) then 'Underweight' else if (BMI/CalculatedBMI ge 18.5 and BMI/CalculatedBMI lt 25) then 'Healthy' else if (BMI/CalculatedBMI ge 25 and BMI/CalculatedBMI lt 30) then 'Overweight' else 'Obese'</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Calculated Value</p></stentry>
+        <stentry><p>max(BMI/HeightInCm)</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Calculated Value</p></stentry>
+        <stentry><p>round-half-to-even(avg(BMI/HeightInCm))</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Calculated Value</p></stentry>
+        <stentry><p>normalize-space(concat(Demographics/Title, ' ', Demographics/Forename, ' ', Demographics/Surname))</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Calculated Value</p></stentry>
+        <stentry><p>count(cityEHR:getValues(Fracture/FractureDate,Fracture/ CurrentFracture='Yes'))</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Calculated Value</p></stentry>
+        <stentry><p>cityEHR:instance(patient-instance,cdaheader/id)</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Calculated Value</p></stentry>
+        <stentry><p>cityEHR:lookup(DrugInformationDirectory,MedicationInformation/DrugName)</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Constraint</p></stentry>
+        <stentry><p>.gt0and.le100</p></stentry>
+      </strow>
+    </simpletable>
+  </body>
+</topic>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

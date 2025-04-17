@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD LIGHTWEIGHT DITA Topic//EN" "topic.dtd">
+<topic id="object-properties">
+  <title>Object Properties</title>
+  <shortdesc></shortdesc>
+  <body>
+    <p>These properties takes values from a defined set, as listed on the Properties sheet. They are selected through drop-down menus in the relevant spreadsheet field which set the value of the property.</p>
+    <p><image href="images/commonModel-properties.png" format="image/png">
+      <alt>Spreadsheet Properties Page</alt></image></p>
+    <simpletable>
+      <sthead>
+        <stentry><p>Property</p></stentry>
+        <stentry><p>Where Used</p></stentry>
+        <stentry><p>Values</p></stentry>
+      </sthead>
+      <strow>
+        <stentry><p>ISO-13606</p></stentry>
+        <stentry><p>For information only</p></stentry>
+        <stentry><p>Components from the ISO-13606 Reference Model</p>
+          <ul>
+            <li><p>EHR_Extract</p></li>
+            <li><p>Folder</p></li>
+            <li><p>Composition</p></li>
+            <li><p>Section</p></li>
+            <li><p>Entry</p></li>
+            <li><p>Cluster</p></li>
+            <li><p>Element</p></li>
+          </ul></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Sequence</p></stentry>
+        <stentry><p>Section</p><p>Entry</p><p>Cluster</p></stentry>
+        <stentry><p>Determines the layout of components contained in a Section for Compositions. In addition, for Pathway compositions the Sequence determines whether the contained activities (Acts) are to be performed in sequence or in parallel.</p>
+          <ul>
+            <li><p>Ranked - sequentially, one after the other, laid out vertically</p></li>
+            <li><p>Unranked - concurrently, in parallel, laid out horizontally</p></li>
+          </ul></stentry>
+      </strow>
+      <strow>
+        <stentry><p>SectionContext</p></stentry>
+        <stentry><p>Section</p></stentry>
+        <stentry><p>The context in which the Section is used – either Composition (which covers Message, Form and Letter) or one of the composition types on named sheets. On the sheets for those compositions the Content fields are selected from Sections of the corresponding SectionContext for the composition.</p>
+          <ul>
+            <li><p>Composition - Message, Form or Letter</p></li>
+            <li><p>Pathway</p></li>
+            <li><p>Order</p></li>
+            <li><p>Prescription</p></li>
+            <li><p>Booking</p></li>
+          </ul></stentry>
+      </strow>
+      <strow>
+        <stentry><p>CRUD</p></stentry>
+        <stentry><p>Entry</p></stentry>
+        <stentry><p>Restrictions on how an Entry is created, read, updated or deleted</p>
+          <ul>
+            <li><p>CRUD - no restriction - Create, Read, Update, Delete</p></li>
+            <li><p>R - Read only. The contents are displayed but the user cannot interact.</p></li>
+            <li><p>CR - Create and Read. New Entries can be added to a multiple entry (as determined by its Occurrence) but and existing pre-filled Entries are read-only.</p></li>
+            <li><p>CRU - Create, Read and Update</p></li>
+            <li><p>CRD - Create, Read and Delete</p></li>
+            <li><p>UL - Lookup in directory and then Update. The complete Entry is retrieved from the Directory of Entries for that identity using the key Element specified in the</p></li>
+            <li><p>L - Lookup in directory (fixed value)</p></li>
+          </ul></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Occurrence</p></stentry>
+        <stentry><p>Entry</p></stentry>
+        <stentry><p>The cardinality of the Entry (one or many)</p>
+          <ul>
+            <li><p>Single - one instance of the Entry</p></li>
+            <li><p>MultipleEntry - multiple instances of the Entry can be created</p></li>
+          </ul></stentry>
+      </strow>
+      <strow>
+        <stentry><p>InitialValue</p></stentry>
+        <stentry><p>Entry</p></stentry>
+        <stentry><p>How the Entry is instantiated when the Composition is loaded</p>
+          <ul>
+            <li><p>Empty – all Element values are empty (blank, not set)</p></li>
+            <li><p>Pre-filled – set with the most recent values in the patient record (for both Single and MultipleEntry)</p></li>
+            <li><p>DistinctValues – for MultipleEntry, set with the set of distinct Entries ever recorded</p></li>
+            <li><p>AllValues – for MultipleEntry, set with the set of every Entry ever recorded</p></li>
+            <li><p>Default – the initial value is calculated from the expression in DefaultValue</p></li>
+            <li><p>Transient – set with the most recent values in the patient record for initial calculations, then reset to Empty once the Composition is loaded.</p></li>
+          </ul></stentry>
+      </strow>
+      <strow>
+        <stentry><p>DataType</p></stentry>
+        <stentry><p>Element</p></stentry>
+        <stentry><p>For the value of Data in an Element - these are datatypes from the XML Datatypes standard (xs:string, xs:date, etc)</p>
+          <ul>
+            <li><p>string</p></li>
+            <li><p>date</p></li>
+            <li><p>dateTime</p></li>
+            <li><p>time</p></li>
+            <li><p>duration</p></li>
+            <li><p>dayTimeDuration</p></li>
+            <li><p>yearMonthDuration</p></li>
+            <li><p>double</p></li>
+            <li><p>integer</p></li>
+            <li><p>boolean</p></li>
+            <li><p>anyURI</p></li>
+            <li><p>base64Binary</p></li>
+          </ul></stentry>
+      </strow>
+      <strow>
+        <stentry><p>EntryType</p></stentry>
+        <stentry><p>Entry</p></stentry>
+        <stentry><p>The HL7 CDA entry type. This determines the SectionContext in which the Entry can be selected. If the EntryType is not set, then the Entry cannot be used, since it won't appear in the drop down selection for the Contents of any Section. The EntryType also determines the HL7 CDA element that is generated.</p>
+          <ul>
+            <li><p>Observation - used in SectionContext of Composition</p></li>
+            <li><p>Act - used in SectionContext of Pathway</p></li>
+            <li><p>Supply - used in SectionContext of Order</p></li>
+            <li><p>SubstanceAdministration - used in SectionContext of Prescription</p></li>
+            <li><p>Encounter - used in SectionContext of Booking</p></li>
+          </ul></stentry>
+      </strow>
+      <strow>
+        <stentry><p>RequiredValue</p></stentry>
+        <stentry><p>Element</p></stentry>
+        <stentry><ul>
+          <li><p>Optional - the Data value can be left blank</p></li>
+          <li><p>Required - the user must fill in the Data value</p></li>
+        </ul></stentry>
+      </strow>
+      <strow>
+        <stentry><p>ViewType</p></stentry>
+        <stentry><p>View</p></stentry>
+        <stentry><ul>
+          <li><p>Folder - the view retrieves all the Composition(s) listed in the Content</p></li>
+          <li><p>Composition - the view retrieves the Data value for every Element in the Composition listed in the Content</p></li>
+          <li><p>Report - the view generates a report by filling out the InitialValue (usually the calculated Default value) of each Element in the Composition listed in the Content</p></li>
+        </ul></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Rendition</p></stentry>
+        <stentry><p>Entry</p></stentry>
+        <stentry><p>The way in which the Entry is rendered on screen for user interaction</p>
+          <ul><li><p>Form - regular interaction using form-based controls (default)</p></li>
+            <li><p>ImageMap - graphical interaction using an image map (which must be loaded through the Administration page)</p></li>
+            <li><p>Image - displayed as a static image (which must be loaded through the Administration page)</p></li>
+            <li><p>Denoted - form-based with each Element preceded by a bullet point icon</p></li>
+            <li><p>Enumerated - form-based with each Element preceded by a number</p></li>
+            <li><p>Standalone - displayed in a pop-out (not yet supported) and printed on a new page</p></li>
+            <li><p>Chart - displayed as a chart generated from historic values of each Element</p></li>
+            <li><p>Highlighted - form-based, emphasized</p></li>
+            <li><p>Hidden - not displayed to the user, but recorded in the record when the Composition is committed</p></li>
+        </ul></stentry>
+      </strow>
+      <strow>
+        <stentry><p>ElementType</p></stentry>
+        <stentry><p>Element</p></stentry>
+        <stentry><p>The type of the element (in addition to the DataType of the Data contained in the element)</p>
+          <ul><li><p>simpleType - user control for data entry is based on the DataType</p></li>
+            <li><p>patientMedia - upload control for user to select external media</p></li>
+            <li><p>calculatedValue - value is calculated using the expression in CalculatedValue (not directly editable by the user)</p></li>
+            <li><p>staticValue - a static value calculated from the DefaultValue (then not editable by the user)</p></li>
+            <li><p>enumeratedValue - user selected from one of the values defined for the Element in the Data</p></li>
+            <li><p>enumeratedCalculatedValue - user selected from one of the values defined for the Element from evaluation of the CalculatedValue</p></li>
+            <li><p>enumeratedClass - user selected from one of the values defined in the Class for the Element</p></li>
+            <li><p>enumeratedDirectory - user selected from one of the values defined in the Directory for the Element</p></li>
+            <li><p>memo - for DataType string - displays a larger memo field</p></li>
+            <li><p>range - for DataType integer - displays a range slider between the two values listed in the Data</p></li>
+            <li><p>URL - the value (usually a static default value) is displayed as a clickable link</p></li>
+            <li><p>age - set to the current patient age (set as a xs:duration)</p></li>
+            <li><p>icon - displayed as small inline image</p></li>
+          </ul></stentry>
+      </strow>
+      <strow>
+        <stentry><p>CohortSearch</p></stentry>
+        <stentry><p>Entry</p></stentry>
+        <stentry><ul><li><p>Searchable - is listed for selection in the Cohort Search page</p></li>
+          <li><p>PrimarySearch - is listed in the primary selection in the Cohort Search page</p></li>
+          <li><p>NotSearchable - is not available for searching in the Cohort Search page</p></li>
+        </ul></stentry>
+      </strow>
+      <strow>
+        <stentry><p>SortOrder</p></stentry>
+        <stentry><p>Entry</p></stentry>
+        <stentry><p>For a Multiple Entry only (Occurrence = MultipleEntry)</p>
+          <ul><li><p>Ascending - entries are sorted in ascending order (using the SortCriteria Element or the first Element in the Entry, if no SortCriteria)</p></li>
+            <li><p>Descending- entries are sorted in descending order (using the SortCriteria Element or the first Element in the Entry, if no SortCriteria)</p></li>
+          </ul></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Scope</p></stentry>
+        <stentry><p>Entry</p><p>Element</p></stentry>
+        <stentry><p>For Multiple Entry (Occurrence = MultipleEntry) or Element</p>
+          <ul><li><p>Defined - the user selects from the set of available values, which are not displayed until the user interacts</p></li>
+            <li><p>Full - all available values are displayed for selection</p></li>
+          </ul></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Axis</p></stentry>
+        <stentry><p>Composition</p></stentry>
+        <stentry><p>For alignment of Entry and Element on a Composition</p>
+          <ul><li><p>Composition - the same alignment is used for the whole Composition</p></li>
+            <li><p>Section - the best alignment is used for each Section</p></li>
+            <li><p>Entry - the best alignment is used for each Entry</p></li>
+          </ul></stentry>
+      </strow>
+      <strow>
+        <stentry><p>CodeSystem</p></stentry>
+        <stentry><p>CodePoint</p></stentry>
+        <stentry><p></p>
+          <ul><li><p>SNOMED</p></li>
+            <li><p>ICD-10 (can be changed to ICD 11)</p></li>
+            <li><p>LOINC</p></li>
+            <li><p>Additional coding systems can be added to this list</p></li>
+          </ul></stentry>
+      </strow>
+    </simpletable>
+  </body>
+</topic>
