@@ -97,15 +97,15 @@
   </xsl:template>
   
   <xsl:template match="simpletable" mode="body">
-    <table style="border-collapse: collapse" >
+    <table style="border-collapse: collapse; width: 85%;">
       <xsl:apply-templates select="node()" mode="body"/>
     </table>
   </xsl:template>
   
   <xsl:template match="sthead" mode="body">
-    <th>
+    <tr>
       <xsl:apply-templates select="node()" mode="table-head"/>
-    </th>
+    </tr>
   </xsl:template>
   
   <xsl:template match="strow" mode="body">
@@ -115,11 +115,11 @@
   </xsl:template>
   
   <xsl:template match="stentry" mode="table-head">
-    <td style="padding: 4px; border: 1px solid black;">
+    <th style="padding: 4px; border: 1px solid black; background-color: #f2f2f2;">
       <b>
         <xsl:apply-templates select="node()" mode="body"/>
       </b>
-    </td>
+    </th>
   </xsl:template>
   
   <xsl:template match="stentry" mode="table-row">
