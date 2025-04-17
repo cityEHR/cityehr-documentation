@@ -16,4 +16,9 @@
   <topicref href="properties-defining-structure-health-record.dita"/>
   <topicref href="object-properties.dita"/>
   <topicref href="data-properties-expressions.dita"/>
+  <topicref href="other-data-properties.dita"/>
+  <topicref href="folder.dita"/>
+  <topicref href="view.dita"/>
+  <topicref href="composition.dita"/>
+  <topicref href="section.dita"/>
 </map>

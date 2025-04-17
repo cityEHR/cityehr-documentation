@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD LIGHTWEIGHT DITA Topic//EN" "topic.dtd">
+<topic id="view">
+  <title>View</title>
+  <shortdesc></shortdesc>
+  <body>
+    <p>Views are available on the Summary tab of the patient record. There are three types of view: Folder, Composition or Report.</p>
+    <p>Views are created by query to the longitudinal record of events for the patient.</p>
+    <simpletable>
+      <sthead>
+        <stentry><p>Property</p></stentry>
+        <stentry><p>Description</p></stentry>
+      </sthead>
+      <strow>
+        <stentry><p>Identifier</p></stentry>
+        <stentry><p>Unique identifier for the ISO-13606 View.</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>DisplayName</p></stentry>
+        <stentry><p>Label used when selecting the View</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Hint</p></stentry>
+        <stentry><p>Description displayed when the user hovers over the View selection</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Rank</p></stentry>
+        <stentry><p>Defines the sort order for the list of Views shown for selection. The highest rank appears at the top of the list. Rank of 0 means it is not displayed for selection</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>ViewType</p></stentry>
+        <stentry><ul><li><p>Folder - the view retrieves all the Composition(s) listed in the Content</p></li>
+          <li><p>Composition - the view retrieves the Data value for every Element in the Composition listed in the Content</p></li>
+          <li><p>Report - the view generates a report by filling out the InitialValue (usually the calculated Default value) of each Element in the Composition listed in the Content</p></li>
+        </ul></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Content</p></stentry>
+        <stentry><p>Set of Compositions for the View, selected from a drop-down menu.</p></stentry>
+      </strow>
+    </simpletable>
+  </body>
+</topic>

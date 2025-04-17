@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD LIGHTWEIGHT DITA Topic//EN" "topic.dtd">
+<topic id="other-data-properties">
+  <title>Other Data Properties</title>
+  <shortdesc></shortdesc>
+  <body>
+    <simpletable>
+      <sthead>
+        <stentry><p>Property</p></stentry>
+        <stentry><p>Where Used</p></stentry>
+        <stentry><p>Description</p></stentry>
+      </sthead>
+      <strow>
+        <stentry><p>Hint</p></stentry>
+        <stentry><p>Folder</p><p>View</p><p>Composition</p><p>Section</p><p>Entry</p><p>Cluster</p><p>Element</p><p>Unit</p><p>CodePoint</p></stentry>
+        <stentry><p>Text that is displayed when the user hovers over the component in the user interface.</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Alert</p></stentry>
+        <stentry><p>Section</p><p>Entry</p></stentry>
+        <stentry><p>Text displayed in a distinctive style with the component. Can be used as a dynamic alert by setting Conditions on the Section or Entry.</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Rank</p></stentry>
+        <stentry><p>Folder</p><p>View</p><p>Composition (except Message)</p></stentry>
+        <stentry><p>A string used to sort Folders, Views and Compositions when they are listed for user selection. Sorted in ascending string order.</p><p>Default value is 1.</p><p>Messages are not selectable by users and so do not have a Rank.</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Precision</p></stentry>
+        <stentry><p>Element</p></stentry>
+        <stentry><p>The precision (length) of the data value. Used to set the size of the input field in the user interface.</p></stentry>
+      </strow>
+    </simpletable>
+  </body>
+</topic>

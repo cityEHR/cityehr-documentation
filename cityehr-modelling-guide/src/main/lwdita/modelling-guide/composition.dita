@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD LIGHTWEIGHT DITA Topic//EN" "topic.dtd">
+<topic id="composition">
+  <title>Composition</title>
+  <shortdesc></shortdesc>
+  <body>
+    <p>The ISO-13606 Composition has sub-categories in cityEHR as follows:</p>
+    <ol><li><p>Message</p></li>
+      <li><p>Form</p></li>
+      <li><p>Letter</p></li>
+      <li><p>Pathway</p></li>
+      <li><p>Order</p></li>
+      <li><p>Prescription</p></li>
+      <li><p>Booking</p></li></ol>
+    <p>These represent the different ways the Compositions are handled in cityEHR, but generally have the same properties.</p>
+    <simpletable>
+      <sthead>
+        <stentry><p>Property</p></stentry>
+        <stentry><p>Where Used</p></stentry>
+        <stentry><p>Description</p></stentry>
+      </sthead>
+      <strow>
+        <stentry><p>Identifier</p></stentry>
+        <stentry><p>All compositions</p></stentry>
+        <stentry><p>Unique identifier for the ISO-13606 Composition.</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>DisplayName</p></stentry>
+        <stentry><p>All compositions</p></stentry>
+        <stentry><p>Label used when selecting the Composition</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Hint</p></stentry>
+        <stentry><p>All compositions</p></stentry>
+        <stentry><p>Description displayed when the user hovers over the Composition selection</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Rank</p></stentry>
+        <stentry><p>All compositions except Message</p></stentry>
+        <stentry><p>Defines the sort order for the list of Compositions shown for selection. The highest rank appears at the top of the list. Rank of 0 means it is not displayed for selection</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Axis</p></stentry>
+        <stentry><p>Letter</p><p>Form</p></stentry>
+        <stentry><p>For alignment of Entry and Element on a Composition</p>
+        <ul>
+          <li><p>Composition - the same alignment is used for the whole Composition</p></li>
+          <li><p>Section - the best alignment is used for each Section</p></li>
+          <li><p>Entry - the best alignment is used for each Entry</p></li>
+        </ul></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Content</p></stentry>
+        <stentry><p>All compositions</p></stentry>
+        <stentry><p>List of Sections contained in the Composition. Only Sections with SectionContext corresponding to the type of Composition are available to select as Content. The SectionContext specified for a Section is one of:</p>
+        <ul>
+          <li><p>Composition - Message, Form or Letter</p></li>
+          <li><p>Pathway</p></li>
+          <li><p>Order</p></li>
+          <li><p>Prescription</p></li>
+          <li><p>Booking</p></li>
+        </ul>
+          <p>If on a Composition sheet there are no Sections available for selection as Content, or the expected Sections are absent, then the most likely cause is that the SectionContext is not correctly specified for the Section on the Section sheet</p></stentry>
+      </strow>
+    </simpletable>
+  </body>
+</topic>

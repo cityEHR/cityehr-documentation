@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD LIGHTWEIGHT DITA Topic//EN" "topic.dtd">
+<topic id="section">
+  <title>Section</title>
+  <shortdesc></shortdesc>
+  <body>
+    <p>For every Section it is important to specify the SectionContext since this defines the type of Composition in which the Section may be used; if no SectionContext is specified then the Section will not be available for selection in any drop-down menus on the Composition sheets.</p>
+    <p>If on a Composition sheet there are no Sections available for selection as Content, or the expected Sections are absent, then the most likely cause is that the SectionContext is not correctly specified for the Section.</p>
+    <simpletable>
+      <sthead>
+        <stentry><p>Property</p></stentry>
+        <stentry><p>Description</p></stentry>
+      </sthead>
+      <strow>
+        <stentry><p>Identifier</p></stentry>
+        <stentry><p>Unique identifier for the ISO-13606 Section.</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>DisplayName</p></stentry>
+        <stentry><p>Label used when selecting the Section</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Hint</p></stentry>
+        <stentry><p>Description displayed when the user hovers over the Section selection</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Alert</p></stentry>
+        <stentry><p>Text displayed in a distinctive style with the Section. Can be used as a dynamic alert by setting Conditions on the Section.</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>SectionContext</p></stentry>
+        <stentry><p>The context in which the Section is used;</p>
+          <ul>
+            <li><p>Composition - Message, Form or Letter</p></li>
+            <li><p>Pathway</p></li>
+            <li><p>Order</p></li>
+            <li><p>Prescription</p></li>
+            <li><p>Booking</p></li>
+          </ul></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Sequence</p></stentry>
+        <stentry><p>Determines the layout of Sections or Entries contained in the Section for Compositions. In addition, for Pathway compositions the Sequence determines whether the contained activities (Acts) are to be performed in sequence or in parallel.</p>
+          <ul><li><p>Ranked - sequentially, one after the other, laid out vertically</p></li>
+            <li><p>Unranked - concurrently, in parallel, laid out horizontally</p></li>
+        </ul></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Rendition</p></stentry>
+        <stentry><p>The way in which the Section is rendered on screen for user interaction</p>
+          <ul><li><p>Form - regular interaction using form-based controls (default)</p></li>
+            <li><p>ImageMap - graphical interaction using an image map (which must be loaded through the Administration page)</p></li>
+            <li><p>Image - displayed as a static image (which must be loaded through the Administration page)</p></li>
+            <li><p>Denoted - form-based with each Element preceded by a bullet point icon</p></li>
+            <li><p>Enumerated - form-based with each Element preceded by a number</p></li>
+            <li><p>Standalone - displayed in a pop-out (not yet supported) and printed on a new page</p></li>
+            <li><p>Chart - displayed as a chart generated from historic values of each Element</p></li>
+            <li><p>Highlighted - form-based, emphasized</p></li>
+            <li><p>Hidden - not displayed to the user, but recorded in the record when the Composition is committed</p></li>
+          </ul></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Pre-conditions</p></stentry>
+        <stentry><p>Result of the expression is cast to xs:boolean</p><p>These pre-conditions are evaluated once, when the Composition is loaded; any out-of- scope Section is removed from the Composition before any user interaction begins.</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Conditions</p></stentry>
+        <stentry><p>The Condition is evaluated continuously as the containing Composition is edited by the user. If the Condition evaluates to <b>true</b> then the Section is in-scope, if the Condition evaluates to <b>false</b> then the Section is out-of-scope.</p>
+          <p>Any out-of-scope Section has its visibility set to <b>false</b>, is hidden from the user, does not get used in other calculations and is removed from the Composition before it is committed to the patient record.</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>EvaluationContext</p></stentry>
+        <stentry><p>Conditions used to constrain the Compositions in the record from which default values for any Elements in the Section are calculated when the Composition is loaded.</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Content</p></stentry>
+        <stentry><p>Selected identifiers of the content of the Section – can be other Sections (i.e. sub- sections) or Entries. The available selection is determined by the SectionContext – only sections of the same SectionContext, or Entries of the EntryType associated with the SectionContext can be selected as content.</p></stentry>
+      </strow>
+    </simpletable>
+  </body>
+</topic>

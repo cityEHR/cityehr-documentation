@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD LIGHTWEIGHT DITA Topic//EN" "topic.dtd">
+<topic id="folder">
+  <title>Folder</title>
+  <shortdesc></shortdesc>
+  <body>
+    <p>A Folder defines a context of care, such as a clinical specialty or service. The Compositions relevant to that context of care are specified as the content of the Folder.</p>
+    <simpletable>
+      <sthead>
+        <stentry><p>Property</p></stentry>
+        <stentry><p>Description</p></stentry>
+      </sthead>
+      <strow>
+        <stentry><p>Identifier</p></stentry>
+        <stentry><p>Unique identifier for the ISO-13606 Folder.</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>DisplayName</p></stentry>
+        <stentry><p>Label used when selecting the Folder</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Hint</p></stentry>
+        <stentry><p>Description displayed when the user hovers over the Folder selection</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Rank</p></stentry>
+        <stentry><p>Defines the sort order for the list of Folders shown for selection. The highest rank appears at the top of the list. Rank of 0 means it is not displayed for selection</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Conditions</p></stentry>
+        <stentry><p>Evaluated to determine whether the Folder is in scope, or not.</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Content</p></stentry>
+        <stentry><p>Selected identifiers of the Compositions this folder – View, Message, Form, Letter, Pathway, Order, Prescription or Booking</p></stentry>
+      </strow>
+    </simpletable>
+  </body>
+</topic>
