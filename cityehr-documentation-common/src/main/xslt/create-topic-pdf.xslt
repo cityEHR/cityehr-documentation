@@ -88,10 +88,29 @@
       <xsl:for-each select="strow[1]/stentry">
         <fo:table-column/>  
       </xsl:for-each>
+      <xsl:if test="sthead">
+        <fo:table-header>
+          <xsl:apply-templates select="sthead" mode="body"/>
+        </fo:table-header>
+      </xsl:if>
       <fo:table-body>
         <xsl:apply-templates select="strow" mode="body"/>
       </fo:table-body>
     </fo:table>
+  </xsl:template>
+  
+  <xsl:template match="sthead" mode="body">
+    <fo:table-row>
+      <xsl:apply-templates select="stentry" mode="table-head"/>
+    </fo:table-row>
+  </xsl:template>
+  
+  <xsl:template match="stentry" mode="table-head">
+    <fo:table-cell border="1pt solid black" padding="4pt" background-color="#eeeeee">
+      <fo:block font-weight="bold">
+        <xsl:apply-templates select="node()" mode="body"/>
+      </fo:block>
+    </fo:table-cell>
   </xsl:template>
 
   <xsl:template match="strow" mode="body">
