@@ -10,6 +10,10 @@
       <othermeta name="dcterms:rights" content="Copyright 2023 Seven Informatics Limited"/>
       <othermeta name="dcterms:rightsHolder" content="https://seveninformatics.com"/>
    </topicmeta>
-   <topicref href="introduction.dita"/>
+  <topicref href="introduction.dita"/>
   <topicref href="modelling-using-libreoffice-spreadsheets.dita"/>
+  <topicref href="configuration-sheet.dita"/>
+  <topicref href="properties-defining-structure-health-record.dita"/>
+  <topicref href="object-properties.dita"/>
+  <topicref href="data-properties-expressions.dita"/>
 </map>
