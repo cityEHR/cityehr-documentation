@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD LIGHTWEIGHT DITA Topic//EN" "topic.dtd">
+<topic id="unit">
+  <title>Unit</title>
+  <shortdesc></shortdesc>
+  <body>
+    <p>The unit of measurement that may be assigned to the Data for an Element. Note that Unit is singular. The DisplayName is used to display the unit before or after the field used for the inout of the Data (the position of the unit depends on the layout of the form, as defined by the Sequence and Scope of the Entry and/or Element.</p>
+    <simpletable>
+      <sthead>
+        <stentry><p>Property</p></stentry>
+        <stentry><p>Description</p></stentry>
+      </sthead>
+      <strow>
+        <stentry><p>Identifier</p></stentry>
+        <stentry><p>Unique identifier for the ISO-13606 Unit</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>DisplayName</p></stentry>
+        <stentry><p>Label (title) used when selecting the Unit</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Hint</p></stentry>
+        <stentry><p>Description displayed when the user hovers over the Unit</p></stentry>
+      </strow>
+    </simpletable>
+  </body>
+</topic>

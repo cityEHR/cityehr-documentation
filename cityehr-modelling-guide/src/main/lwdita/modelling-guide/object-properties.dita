@@ -202,7 +202,7 @@
       <strow>
         <stentry><p>CodeSystem</p></stentry>
         <stentry><p>CodePoint</p></stentry>
-        <stentry><p></p>
+        <stentry><p>The coding system of the Code assigned to the CodePoint. Selected from one of values defined on the Properties sheet:</p>
           <ul><li><p>SNOMED</p></li>
             <li><p>ICD-10 (can be changed to ICD 11)</p></li>
             <li><p>LOINC</p></li>

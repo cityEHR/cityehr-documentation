@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD LIGHTWEIGHT DITA Topic//EN" "topic.dtd">
+<topic id="element">
+  <title>Element</title>
+  <shortdesc></shortdesc>
+  <body>
+    <p>ISO 13606 Elements and Data. Each Element is associated with a single Data value which is of the defined DataType and Unit of measurement (if specified). The elementType defines the scope of the Data values, in addition to their base data type.</p>
+    <simpletable>
+      <sthead>
+        <stentry><p>Property</p></stentry>
+        <stentry><p>Description</p></stentry>
+      </sthead>
+      <strow>
+        <stentry><p>Identifier</p></stentry>
+        <stentry><p>Unique identifier for the ISO-13606 Element</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>DisplayName</p></stentry>
+        <stentry><p>Label (title) used when selecting the Element</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Hint</p></stentry>
+        <stentry><p>Description displayed when the user hovers over the Element</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Extension</p></stentry>
+        <stentry><p>The extension to the Identifier. The purpose of the extension is to allow for specialization of identified Elements.</p>
+          <p>The Element Identifier is used to define the structure of the health record, but the Extension is used in calculations. This means that the same Element (same Extension) can be defined with different behaviours (specified for Elements with different Identifiers, referring to the same Extension)</p>
+          <p>Selected from the existing Element Identifiers.</p>
+          <p>If no Extension is specified for an Element then it defaults to be the same as the Identifier</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>ElementType</p></stentry>
+        <stentry><p>The type of the element (in addition to the DataType of the Data contained in the element)</p>
+          <ul><li><p>simpleType - user control for data entry is based on the DataType</p></li>
+            <li><p>patientMedia - upload control for user to select external media</p></li>
+            <li><p>calculatedValue - value is calculated using the expression in CalculatedValue (not directly editable by the user)</p></li>
+            <li><p>staticValue - a static value calculated from the DefaultValue (then not editable by the user)</p></li>
+            <li><p>enumeratedValue - user selected from one of the values defined for the Element in the Data</p></li>
+            <li><p>enumeratedCalculatedValue - user selected from one of the values defined for the Element from evaluation of the CalculatedValue</p></li>
+            <li><p>enumeratedClass - user selected from one of the values defined in the Class for the Element</p></li>
+            <li><p>enumeratedDirectory - user selected from one of the values defined in the Directory for the Element</p></li>
+            <li><p>memo - for DataType string - displays a larger memo field</p></li>
+            <li><p>range - for DataType integer - displays a range slider between the two values listed in the Data</p></li>
+            <li><p>URL - the value (usually a static default value) is displayed as a clickable link</p></li>
+            <li><p>age - set to the current patient age (set as a xs:duration)</p></li>
+            <li><p>icon - displayed as small inline image</p></li>
+          </ul></stentry>
+      </strow>
+      <strow>
+        <stentry><p>DataType</p></stentry>
+        <stentry><p>For the value of Data in an Element - these are datatypes from the XML Datatypes standard (xs:string, xs:date, etc)</p>
+          <ul>
+            <li><p>string</p></li>
+            <li><p>date</p></li>
+            <li><p>dateTime</p></li>
+            <li><p>time</p></li>
+            <li><p>duration</p></li>
+            <li><p>dayTimeDuration</p></li>
+            <li><p>yearMonthDuration</p></li>
+            <li><p>double</p></li>
+            <li><p>integer</p></li>
+            <li><p>boolean</p></li>
+            <li><p>anyURI</p></li>
+            <li><p>base64Binary</p></li>
+          </ul></stentry>
+      </strow>
+      <strow>
+        <stentry><p>RequiredValue</p></stentry>
+        <stentry><ul>
+          <li><p>Optional - the Data value can be left blank</p></li>
+          <li><p>Required - the user must fill in the Data value</p></li>
+        </ul></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Scope</p></stentry>
+        <stentry><p>For user selection of the values for an Element with ElementType of enumeratedValue or enumeratedClass</p>
+          <ul><li><p>Defined - the user selects from the set of available values, which are not displayed until the user interacts. For enumeratedValue this is a drop-down menu of all defined values. For enumeratedClass this is a button which invokes a dialog box with the classification through which the user can browse and select the required value.</p></li>
+            <li><p>Full - all available values are displayed for selection. For enumeratedValue this is a set of radio button selections, one for each of the defined values. For enumeratedClass this enables the autocomplete so that values are found in the classification as the user types in the input box. If the string types by the use exactly matches one value in the classification then that value is filled out; if a limited number of possible values is returned then a drop-down menu of those values is displayed for the user to select.</p></li>
+        </ul></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Unit</p></stentry>
+        <stentry><p>The units of measurement for a data value, selected from the units defined on the Unit sheet.</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Precision</p></stentry>
+        <stentry><p>The precision (length) of the data value. Used to set the size of the input field in the user interface. When used with a calculatedValue of DataType xs:double the Precision is used to determine the rounding of the value to the specified number of decimal places.</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Conditions</p></stentry>
+        <stentry><p>The Condition is evaluated continuously as the containing Composition is edited by the user. If the Condition evaluates to <b>true</b> then the Element is in-scope, if the Condition evaluates to <b>false</b> then the Element is out-of-scope.</p>
+          <p>Any out-of-scope Element has its visibility set to <b>false</b>, is hidden from the user, does not get used in other calculations and is removed from the Composition before it is committed to the patient record.</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Constraints</p></stentry>
+        <stentry><p>Result of the expression is cast to xs:boolean</p><p>An expression that is evaluated as the user enters the value of Data for the Element; if the Constraints evaluates to <b>false</b> then the value entered by the user is removed (replaced by an empty value)</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>DefaultValue</p></stentry>
+        <stentry><p>Expression evaluated to calculate the default data value of the Element. The calculation is performed once, when the Form is loaded.</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>CalculatedValue</p></stentry>
+        <stentry><p>Expression evaluated to calculate the data value of the Element. The calculation is evaluated continuously when the Element is displayed, so that the value may be updated as other values are changed on the Form.</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Data</p></stentry>
+        <stentry><p>For enumeratedValue or calculatedEnumeratedValue the Data specifies pairs of displayName / value for the element. If no value is specified in the pair, then the default value is the same as the displayName.</p>
+          <p>For enumeratedClass the first displayName / value pair defines the class used as the scope for values of the Element. The value is either a single atomic value that defines the classId or is of the form classId:nodeId where the nodeId defines the Identifier of the entry node in the class.</p>
+          <p>If an Element of enumeratedClass is used for CategorizationCriteria then there may be multiple values of the form classId:NodeId to define the categories.</p></stentry>
+      </strow>
+    </simpletable>
+  </body>
+</topic>

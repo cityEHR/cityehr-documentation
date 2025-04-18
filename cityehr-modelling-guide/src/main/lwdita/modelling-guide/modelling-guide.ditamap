@@ -21,4 +21,9 @@
   <topicref href="view.dita"/>
   <topicref href="composition.dita"/>
   <topicref href="section.dita"/>
+  <topicref href="entry.dita"/>
+  <topicref href="cluster.dita"/>
+  <topicref href="element.dita"/>
+  <topicref href="unit.dita"/>
+  <topicref href="codepoint.dita"/>
 </map>

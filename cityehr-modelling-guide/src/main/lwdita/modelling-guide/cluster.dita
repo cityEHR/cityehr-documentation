@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD LIGHTWEIGHT DITA Topic//EN" "topic.dtd">
+<topic id="cluster">
+  <title>Cluster</title>
+  <shortdesc></shortdesc>
+  <body>
+    <p>Clusters are used to group Elements together and are for layout purposes only. Clusters do not convey any clinical context.</p>
+    <simpletable>
+      <sthead>
+        <stentry><p>Property</p></stentry>
+        <stentry><p>Description</p></stentry>
+      </sthead>
+      <strow>
+        <stentry><p>Identifier</p></stentry>
+        <stentry><p>Unique identifier for the ISO-13606 Cluster.</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>DisplayName</p></stentry>
+        <stentry><p>Label (title) used when selecting the Cluster</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Hint</p></stentry>
+        <stentry><p>Description displayed when the user hovers over the Cluster</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Sequence</p></stentry>
+        <stentry><p>Determines the layout of Elements and Clusters in the Cluster. By default the Sequence of nested Clusters is toggled at each level.</p>
+          <ul>
+            <li><p>Ranked - sequentially, one after the other, laid out vertically</p></li>
+            <li><p>Unranked - concurrently, in parallel, laid out horizontally</p></li>
+          </ul></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Conditions</p></stentry>
+        <stentry><p>The Condition is evaluated continuously as the containing Composition is edited by the user. If the Condition evaluates to <b>true</b> then the Cluster is in-scope, if the Condition evaluates to <b>false</b> then the Cluster is out-of-scope.</p>
+          <p>Any out-of-scope Cluster has its visibility set to <b>false</b>, is hidden from the user, does not get used in other calculations and is removed from the Composition before it is committed to the patient record.</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Content</p></stentry>
+        <stentry><p>Set of Clusters and Elements contained in the Cluster. Selected from a dropdown menu.</p></stentry>
+      </strow>
+    </simpletable>
+  </body>
+</topic>

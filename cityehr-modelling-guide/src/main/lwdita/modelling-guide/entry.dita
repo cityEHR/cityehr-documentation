@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD LIGHTWEIGHT DITA Topic//EN" "topic.dtd">
+<topic id="entry">
+  <title>Entry</title>
+  <shortdesc></shortdesc>
+  <body>
+    <p>Each Entry must have an EntryType specified, which determines how the ISO 13606 Entry will be represented in HL7 CDA. When Entries are selected as the content of Sections, only the Entries of the EntryType corresponding to the SectionContext of the Section are available for selection.</p>
+    <p>If an Entry is unexpectedly not available for selection as content for a Section then the most likely cause is the EntryType and SectionContext do not match.</p>
+    <simpletable>
+      <sthead>
+        <stentry><p>Property</p></stentry>
+        <stentry><p>Description</p></stentry>
+      </sthead>
+      <strow>
+        <stentry><p>Identifier</p></stentry>
+        <stentry><p>Unique identifier for the ISO-13606 Entry.</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>DisplayName</p></stentry>
+        <stentry><p>Label used when selecting the Entry</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Hint</p></stentry>
+        <stentry><p>Description displayed when the user hovers over the Entry</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Alert</p></stentry>
+        <stentry><p>Text displayed in a distinctive style with the Entry. Can be used as a dynamic alert by setting Conditions on the Entry.</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Extension</p></stentry>
+        <stentry><p>The extension to the Identifier. The purpose of the extension is to allow for specialization of identified Entries.</p>
+          <p>The Entry Identifier is used to define the structure of the health record, but the Extension is used in calculations. This means that the same Entry (same extension) can be defined with different behaviours (specified for Entries with different Identifiers, referring to the same Extension)</p>
+          <p>Selected from the existing Entry Identifiers.</p>
+          <p>If no Extension is specified for an Entry then it defaults to be the same as the Identifier</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Information</p></stentry>
+        <stentry><p>An Entry displayed in the Information pane of the user interface that can contain additional information about the Entry to which it is associated.</p>
+          <p>The Information Entry is displayed as Read Only but can include calculations. This could be used (for example) to display a different URL to external information, depending on the values of Elements in the associated Entry.</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>EntryRelationship</p></stentry>
+        <stentry><p>Used to define additional information about an</p>
+          <ul><li><p>Encounter - details of the booking</p></li>
+            <li><p>SubstanceAdministration – details of the medication being prescribed</p></li>
+            <li><p>Supply – details of the test being ordered.</p></li>
+        </ul></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Subject</p></stentry>
+        <stentry><p>The Composition that is the subject of an Act. Only selectable if the Entry has an EntryType of Act.</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>EntryType</p></stentry>
+        <stentry><p>The HL7 CDA entry type. This determines the SectionContext in which the Entry can be selected. If the EntryType is not set, then the Entry cannot be used, since it won't appear in the drop down selection for the Contents of any Section. The EntryType also determines the HL7 CDA element that is generated.</p>
+        <ul>
+          <li><p>Observation - used in SectionContext of Composition</p></li>
+          <li><p>Act - used in SectionContext of Pathway</p></li>
+          <li><p>Supply - used in SectionContext of Order</p></li>
+          <li><p>SubstanceAdministration - used in SectionContext of Prescription</p></li>
+          <li><p>Encounter - used in SectionContext of Booking</p></li>
+        </ul></stentry>
+      </strow>
+      <strow>
+        <stentry><p>CRUD</p></stentry>
+        <stentry><p>How the Entry is instantiated when the Composition is loaded</p>
+          <ul>
+            <li><p>CRUD - no restriction - Create, Read, Update, Delete</p></li>
+            <li><p>R - Read only. The contents are displayed but the user cannot interact.</p></li>
+            <li><p>CR - Create and Read. New Entries can be added to a multiple entry (as determined by its Occurrence) but and existing pre-filled Entries are read-only.</p></li>
+            <li><p>CRU - Create, Read and Update</p></li>
+            <li><p>CRD - Create, Read and Delete</p></li>
+            <li><p>UL - Lookup in directory and then Update. The complete Entry is retrieved from the Directory of Entries for that identity using the key Element specified in the</p></li>
+            <li><p>L - Lookup in directory (fixed value)</p></li>
+          </ul></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Occurrence</p></stentry>
+        <stentry><p>The cardinality of the Entry (one or many)</p>
+          <ul>
+            <li><p>Single - one instance of the Entry</p></li>
+            <li><p>MultipleEntry - multiple instances of the Entry can be created</p></li>
+          </ul></stentry>
+      </strow>
+      <strow>
+        <stentry><p>InitialValue</p></stentry>
+        <stentry><p>How the Entry is instantiated when the Composition is loaded</p>
+          <ul>
+            <li><p>Empty – all Element values are empty (blank, not set)</p></li>
+            <li><p>Pre-filled – set with the most recent values in the patient record (for both Single and MultipleEntry)</p></li>
+            <li><p>DistinctValues – for MultipleEntry, set with the set of distinct Entries ever recorded</p></li>
+            <li><p>AllValues – for MultipleEntry, set with the set of every Entry ever recorded</p></li>
+            <li><p>Default – the initial value is calculated from the expression in DefaultValue</p></li>
+            <li><p>Transient – set with the most recent values in the patient record for initial calculations, then reset to Empty once the Composition is loaded.</p></li>
+          </ul></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Sequence</p></stentry>
+        <stentry><p>Determines the layout of Clusters and Elements contained in the Entry.</p>
+          <ul>
+            <li><p>Ranked - sequentially, one after the other, laid out vertically</p></li>
+            <li><p>Unranked - concurrently, in parallel, laid out horizontally</p></li>
+          </ul></stentry>
+      </strow>
+      <strow>
+        <stentry><p>SortOrder</p></stentry>
+        <stentry><p>For a Multiple Entry only (Occurrence = MultipleEntry)</p>
+          <ul><li><p>Ascending - entries are sorted in ascending order (using the SortCriteria Element or the first Element in the Entry, if no SortCriteria)</p></li>
+            <li><p>Descending- entries are sorted in descending order (using the SortCriteria Element or the first Element in the Entry, if no SortCriteria)</p></li>
+          </ul></stentry>
+      </strow>
+      <strow>
+        <stentry><p>SortCriteria</p></stentry>
+        <stentry><p>The Element used to sort a MultipleEntry or as the key to look up the value of a directory Entry.</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>CategorizationCriteria</p></stentry>
+        <stentry><p>The Element used to categorize a MultipleEntry. The multiple entries are split into categories – one category for each value of the Element specified as the CategorizationCriteria. This Element must exist as content of the Entry.</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Rendition</p></stentry>
+        <stentry><p>The way in which the Entry is rendered on screen for user interaction</p>
+          <ul><li><p>Form - regular interaction using form-based controls (default)</p></li>
+            <li><p>ImageMap - graphical interaction using an image map (which must be loaded through the Administration page)</p></li>
+            <li><p>Image - displayed as a static image (which must be loaded through the Administration page)</p></li>
+            <li><p>Denoted - form-based with each Element preceded by a bullet point icon</p></li>
+            <li><p>Enumerated - form-based with each Element preceded by a number</p></li>
+            <li><p>Standalone - displayed in a pop-out (not yet supported) and printed on a new page</p></li>
+            <li><p>Chart - displayed as a chart generated from historic values of each Element</p></li>
+            <li><p>Highlighted - form-based, emphasized</p></li>
+            <li><p>Hidden - not displayed to the user, but recorded in the record when the Composition is committed</p></li>
+          </ul></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Scope</p></stentry>
+        <stentry><p>For Multiple Entry (Occurrence = MultipleEntry) or Element</p>
+          <ul><li><p>Defined - the user selects from the set of available values, which are not displayed until the user interacts</p></li>
+            <li><p>Full - all available values are displayed for selection</p></li>
+          </ul></stentry>
+      </strow>
+      <strow>
+        <stentry><p>CohortSearch</p></stentry>
+        <stentry><ul>
+          <li><p>Searchable - is listed for selection in the Cohort Search page</p></li>
+          <li><p>PrimarySearch - is listed in the primary selection in the Cohort Search page</p></li>
+          <li><p>NotSearchable - is not available for searching in the Cohort Search page</p></li>
+        </ul></stentry>
+      </strow>
+      <strow>
+        <stentry><p>EvaluationContext</p></stentry>
+        <stentry><p>Conditions used to constrain the Compositions in the record from which default values for any Elements in the Entry are calculated when the Composition is loaded.</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Pre-conditions</p></stentry>
+        <stentry><p>Result of the expression is cast to xs:boolean</p><p>These pre-conditions are evaluated once, when the Composition is loaded; any out-of- scope Entry is removed from the Composition before any user interaction begins.</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Conditions</p></stentry>
+        <stentry><p>The Condition is evaluated continuously as the containing Composition is edited by the user. If the Condition evaluates to <b>true</b> then the entry is in-scope, if the Condition evaluates to <b>false</b> then the Entry is out-of-scope.</p>
+          <p>Any out-of-scope Entry has its visibility set to <b>false</b>, is hidden from the user, does not get used in other calculations and is removed from the Composition before it is committed to the patient record.</p></stentry>
+      </strow>
+      <strow>
+        <stentry><p>Content</p></stentry>
+        <stentry><p>Set of Clusters and Elements contained in the Entry</p></stentry>
+      </strow>
+    </simpletable>
+  </body>
+</topic>
